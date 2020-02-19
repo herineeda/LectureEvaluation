@@ -1,3 +1,21 @@
 from django.shortcuts import render
+from django.db.models import Q # filter 조건을 or로 묶기 위해서 사용
+from .models import Lecture # lecture 가져오기
 
-# Create your views here.
+# 홈 화면 보여주기
+def home(request):
+    return render(request, 'home.html')
+
+# 모든 강의 보여주기
+def showLecture(request):
+    subject = Lecture.objects
+    return render(request, 'showLecture.html', {'subject':subject})
+
+# 검색 결과 보여주기
+def searchResult(request):
+        texts = request.GET.get('txt')
+        try:
+            result = Lecture.objects.filter(Q(lectureName__icontains=texts) | Q(professor__icontains=texts))
+        except:
+            result = Lecture.objects.all()
+        return render(request, 'searchResult.html', {'result':result})
