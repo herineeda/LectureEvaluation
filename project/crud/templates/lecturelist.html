@@ -9,5 +9,6 @@
 <p> {{lect.major}} </p>
 <p> {{lect.separation}} </p>
 
-<button> <a href = "{% url 'write' %}"> 강의 평가하기 </a> </button> 
+
+<button> <a href = "{% url 'evallist' lect.id %}"> 강의 평가 목록 </a> </button> 
 {% endfor %}

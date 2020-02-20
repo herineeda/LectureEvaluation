@@ -1,11 +1,24 @@
-<h1> 강의 평가하기 </h1>
+<h1>강의 평 글 쓰기 </h1>
 
-<form method = "POST" action = "{% url 'create' %}">
-<h3> 학년 : </h3>
-<input type= "list" name = "grade"> 
+<form method = "POST">
+<select name = "gradep"> 
+<option value = "학점 비율"> 학점 비율 </option>
+<option value = "쁠몰느님"> 쁠몰느님 </option>
+<option value = "골고루"> 골고루 </option>
+<option value = "깐깐징어"> 깐깐징어</option>
+<option value = "F박격포"> F 박격포 </option>
+</select>
 <br>
-<h3> 평가 내용을 입력해주세요 : </h3>
-<textarea cols = "30" rows = "10" name = "text"></textarea>
+<br>
+<select name = "semester">
+    <option value = ""> 수강 학기 </option>
+    <option value = "1학기"> 1학기 </option>
+    <option value = "2학기"> 2학기  </option>
+</select>
+<br>
+<br>
+<h3> 종합적인 평가 내용을 입력해주세요 : </h3>
+<textarea cols = "30" rows = "20" name = "text"></textarea>
 <br>
 <br>
 <input type = "submit" value = "제출"> 

@@ -1,1 +1,8 @@
 <h1> 강의 평가 목록 <h1>
+
+<h3> {{lect.lectureName}} </h3>
+<p> {{lect.professor}} </p>
+<p> {{lect.major}} </p>
+<p> {{lect.separation}} </p>
+
+<button name = "write"> <a href = "{% url 'write' %}"> 평가 작성하기 </a> </button>

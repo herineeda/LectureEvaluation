@@ -3,5 +3,6 @@ from django.urls import path
 from . import views 
 
 urlpatterns = [
-    #path('write/', views.write, name = "write"),
-]
+    path('<int:lect_id>/', views.evallist, name = "evallist"),
+    path('write/', views.write, name = "write"),
+    ]
