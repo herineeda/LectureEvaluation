@@ -1,0 +1,13 @@
+<!-- 강의 리스트 -->
+
+<h1> 강의 리스트 </h1>
+
+{% for lect in lectures.all %}
+
+<h2> {{lect.lectureName}} </h2>
+<p> {{lect.professor}} </p>
+<p> {{lect.major}} </p>
+<p> {{lect.separation}} </p>
+
+<button> <a href = "{% url 'write' %}"> 강의 평가하기 </a> </button> 
+{% endfor %}

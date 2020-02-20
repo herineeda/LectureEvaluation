@@ -1,0 +1,12 @@
+<h1> 강의 평가하기 </h1>
+
+<form method = "POST" action = "{% url 'create' %}">
+<h3> 학년 : </h3>
+<input type= "list" name = "grade"> 
+<br>
+<h3> 평가 내용을 입력해주세요 : </h3>
+<textarea cols = "30" rows = "10" name = "text"></textarea>
+<br>
+<br>
+<input type = "submit" value = "제출"> 
+</form>
