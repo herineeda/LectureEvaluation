@@ -1,9 +1,14 @@
 <!--모든 강의가 출력되는 페이지/ 버튼을 누르면 전공 혹은 교양만 추려서 보여주기-->
 <h1>강의 리스트</h1>
 
+<a href="{% url 'filteringM' %}">전공</a>
+<a href="{% url 'filteringL' %}">교양</a>
+<a href="{% url 'showLecture' %}">모두 보기</a>
+
 {% for s in subject.all %}
 <div>
     <p>강좌명: {{s.lectureName}}</p>
     <p>교수: {{s.professor}}</p>
 </div>
 {% endfor %}
+<a href ="{% url 'home' %}">홈</a>

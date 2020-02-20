@@ -6,9 +6,19 @@ from .models import Lecture # lecture 가져오기
 def home(request):
     return render(request, 'home.html')
 
-# 모든 강의 보여주기
+# 모든 강의를 이름 순으로 보여주기
 def showLecture(request):
-    subject = Lecture.objects
+    subject = Lecture.objects.order_by('lectureName')
+    return render(request, 'showLecture.html', {'subject':subject})
+
+# 전공 강의만 보여주기
+def filteringM(request):
+    subject = Lecture.objects.filter(separation__icontains='전공')
+    return render(request, 'showLecture.html', {'subject':subject})
+
+# 교양 강의만 보여주기
+def filteringL(request):
+    subject = Lecture.objects.filter(separation__icontains='교양')
     return render(request, 'showLecture.html', {'subject':subject})
 
 # 검색 결과 보여주기
