@@ -14,22 +14,12 @@ class Lecture(models.Model):
 
 class Eval(models.Model):
     ratio_choice = (
-        ('', '학점느님'), ('골고루', '골고루'), ('깐깐징어', '깐깐징어'),
+        ('학점느님', '학점느님'), ('골고루', '골고루'), ('깐깐징어', '깐깐징어'),
         ('F 박격포', 'F 박격포'),
     )
-    
-    overall_choice = (
-        ('5점', '5점'), ('4점', '4점'), ('3점', '3점'), ('2점', '2점'), ('1점', '1점'),           
-        )
-    
-    semester_choice = (
-        ('1학기', '1학기'), ('2학기', '2학기'),
-    )
 
-    ratio = models.CharField(max_length = 10, choices = ratio_choice)
-    overall = models.CharField(max_length = 5, choices = overall_choice)
-    semester = models.CharField(max_length = 5, choices = semester_choice)
+    ratio_select = models.CharField(max_length = 10, choices = ratio_choice)
     pub_date = models.DateTimeField('date published')
-    text = models.TextField()
+    texts = models.TextField()
 
 
