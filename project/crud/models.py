@@ -12,14 +12,12 @@ class Lecture(models.Model):
     def __str__(self):
         return self.lectureName
 
-class Eval(models.Model):
-    ratio_choice = (
-        ('학점느님', '학점느님'), ('골고루', '골고루'), ('깐깐징어', '깐깐징어'),
-        ('F 박격포', 'F 박격포'),
-    )
 
-    ratio_select = models.CharField(max_length = 10, choices = ratio_choice)
+class Evals(models.Model):
+    title = models.CharField(max_length = 20)
     pub_date = models.DateTimeField('date published')
-    texts = models.TextField()
+    body = models.TextField()
 
 
+
+    

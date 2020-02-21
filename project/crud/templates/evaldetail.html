@@ -1,10 +1,9 @@
 <!-- 작성한 평가 자세히 보는 페이지 -->
 <h1> 강의 평가 자세히 보기 </h1>
 
-{{evals.ratio}}
-{{evals.overall}}
-{{evals.semester}}
-{{evals.pub_date}}
-{{evals.text}}
+<h3> {{evals.title}} </h3>
+<p> {{evals.pub_date}} </p>
+<p> {{evals.body}} </p>
 
+<button name = "edit"> <a href = "{% url 'edit' evals.id %}"> 수정하기 </a> </button>
 <button name = "delete"> <a href = "{% url 'delete' evals.id %}"> 삭제하기 </a></button>
