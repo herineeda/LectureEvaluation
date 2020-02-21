@@ -7,4 +7,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', crud.views.lecturelist, name = "lecturelist"),
     path('lecture/', include('crud.urls')),
+    path('write/<int:evals_id>', crud.views.evaldetail, name = "evaldetail"),
+
 ]

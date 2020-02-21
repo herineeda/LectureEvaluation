@@ -1,23 +1,29 @@
+<!-- 강의평 작성 페이지 -->
 <h1>강의 평 글 쓰기 </h1>
 
-<form method = "POST">
-<select name = "gradep"> 
-<option value = "학점 비율"> 학점 비율 </option>
-<option value = "쁠몰느님"> 쁠몰느님 </option>
-<option value = "골고루"> 골고루 </option>
-<option value = "깐깐징어"> 깐깐징어</option>
-<option value = "F박격포"> F 박격포 </option>
-</select>
+<form method = "POST" action = "{% url 'create' %}">
+
+{% csrf_token %}
+
+학점 비율
+<input type = "radio" name = "ratio_select" value = "학점느님"> 학점느님
+<input type = "radio" name = "ratio_select" value = "골고루"> 골고루
+<input type = "radio" name = "ratio_select" value = "깐깐징어"> 깐깐징어
+<input type = "radio" name = "ratio_select" value = "F 박격포"> F 박격포
 <br>
+종합 평점
+<input type = "radio" name = "overall_select" value = "1점"> 1점
+<input type = "radio" name = "overall_select" value = "2점"> 2점
+<input type = "radio" name = "overall_select" value = "3점"> 3점
+<input type = "radio" name = "overalll_select" value = "4점"> 4점
+<input type = "radio" name = "overalll_select" value = "5점"> 5점
 <br>
-<select name = "semester">
-    <option value = ""> 수강 학기 </option>
-    <option value = "1학기"> 1학기 </option>
-    <option value = "2학기"> 2학기  </option>
-</select>
+수강 학기
+<input type = "radio" name = "semester_select" value = "1학기"> 1학기
+<input type = "radio" name = "semester_select" value = "2학기"> 2학기
 <br>
-<br>
-<h3> 종합적인 평가 내용을 입력해주세요 : </h3>
+ 종합적인 평가 내용을 입력해주세요.
+ <br>
 <textarea cols = "30" rows = "20" name = "text"></textarea>
 <br>
 <br>
