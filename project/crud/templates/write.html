@@ -4,14 +4,6 @@
 <form method = "POST" action = "{% url 'create' %}">
 
 {% csrf_token %}
-
-<!--학점 비율
-<input type = "radio" name = "ratio_select" value = "학점느님"> 학점느님
-<input type = "radio" name = "ratio_select" value = "골고루"> 골고루
-<input type = "radio" name = "ratio_select" value = "깐깐징어"> 깐깐징어
-<input type = "radio" name = "ratio_select" value = "F 박격포"> F 박격포-->
-<br>
-
 제목을 입력해주세요.
 <br>
 <input type = "text" name = "title">

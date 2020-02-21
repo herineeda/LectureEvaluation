@@ -6,6 +6,12 @@
 <p> {{lect.major}} </p>
 <p> {{lect.separation}} </p>
 
+<!--해당 강의에 대한 평가 글-->
+{% for eval in relev_eval %}
+<p>{{eval.title}}</p>
+<p> {{eval.pub_date}}</p>
+<p>{{eval.body}}</p>
 
+{% endfor %}
 <!-- 평가 작성 페이지로 이동-->
 <button name = "write"> <a href = "{% url 'write' %}"> 평가 작성하기 </a> </button>

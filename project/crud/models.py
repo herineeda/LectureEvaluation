@@ -14,6 +14,7 @@ class Lecture(models.Model):
 
 
 class Evals(models.Model):
+    lect = models.ForeignKey(Lecture, on_delete = models.CASCADE, related_name = "evalposts")
     title = models.CharField(max_length = 20)
     pub_date = models.DateTimeField('date published')
     body = models.TextField()

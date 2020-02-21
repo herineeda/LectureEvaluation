@@ -13,8 +13,13 @@ def write(request):
 #강의 당 평가글 목록
 def evallist(request, lect_id):
     lect = get_object_or_404(Lecture, pk = lect_id)
-    
-    return render(request, 'evallist.html', {'lect' : lect})
+    relev_eval = Evals.objects.filter(lect_id = lect_id)
+
+    context = {
+        'lect' : lect,
+        'relev_eval' : relev_eval
+    }
+    return render(request, 'evallist.html', context)
 
 #평가글 자세히 보기
 def evaldetail(request, evals_id):
@@ -23,13 +28,17 @@ def evaldetail(request, evals_id):
 
 #평가글 전송
 def create(request):
-    new_eval = Evals()
-    new_eval.title = request.POST['title']
-    #new_eval.ratio_select = request.GET.get('ratio_select')
-    new_eval.pub_date = timezone.datetime.now()
-    new_eval.body = request.POST['body']
-    new_eval.save()
-    return redirect('/write/' + str(new_eval.id))
+    lect = get_object_or_404(Lecture, pk = lect_id)
+    
+    if request.method == "POST":
+        new_eval = Evals()
+        new_eval.lect = lect
+        new_eval.title = request.POST['title']
+        new_eval.pub_date = timezone.datetime.now()
+        new_eval.body = request.POST['body']
+        new_eval.save()
+        return redirect('lecturelist')
+    return redirect('write')
 
 #평가글 삭제
 def eval_delete(request, evals_id):
