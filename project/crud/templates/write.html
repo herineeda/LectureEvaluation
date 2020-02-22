@@ -3,7 +3,10 @@
 
 <form method = "POST" action = "{% url 'create' %}">
 
-{% csrf_token %}
+    {% csrf_token %}
+
+<input type = "text" value = "강의 id 입력" name = "lect_id">
+<br>
 제목을 입력해주세요.
 <br>
 <input type = "text" name = "title">
@@ -15,3 +18,4 @@
 <br>
 <input type = "submit" value = "제출"> 
 </form>
+<button name = "lecturelist"> <a href = "{% url 'lecturelist' %}"> Home </a> </button>

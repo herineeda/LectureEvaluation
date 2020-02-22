@@ -12,12 +12,18 @@ class Lecture(models.Model):
     def __str__(self):
         return self.lectureName
 
+        
+
 
 class Evals(models.Model):
-    lect = models.ForeignKey(Lecture, on_delete = models.CASCADE, related_name = "evalposts")
+    lect = models.ForeignKey(Lecture, on_delete = models.CASCADE)
     title = models.CharField(max_length = 20)
     pub_date = models.DateTimeField('date published')
     body = models.TextField()
+
+
+    def summary(self):
+        return self.body[:50]
 
 
 

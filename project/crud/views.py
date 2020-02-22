@@ -7,7 +7,7 @@ def lecturelist(request):
     lectures = Lecture.objects
     return render(request, 'lecturelist.html', {'lectures' : lectures})
 
-def write(request):
+def write(request, lect_id):
     return render(request, 'write.html')
 
 #강의 당 평가글 목록
@@ -28,18 +28,17 @@ def evaldetail(request, evals_id):
 
 #평가글 전송
 def create(request):
-    lect = get_object_or_404(Lecture, pk = lect_id)
-    
     if request.method == "POST":
         new_eval = Evals()
-        new_eval.lect = lect
         new_eval.title = request.POST['title']
+        new_eval.lect = Lecture.objects.get(id = request.POST['lect_id'])
         new_eval.pub_date = timezone.datetime.now()
         new_eval.body = request.POST['body']
         new_eval.save()
-        return redirect('lecturelist')
-    return redirect('write')
-
+        return redirect('/write/' + str(new_eval.id))
+    else:
+        return redirect('write')
+    
 #평가글 삭제
 def eval_delete(request, evals_id):
     evals = Evals.objects.get(id = evals_id)

@@ -10,8 +10,12 @@
 {% for eval in relev_eval %}
 <p>{{eval.title}}</p>
 <p> {{eval.pub_date}}</p>
-<p>{{eval.body}}</p>
+<p>{{eval.summary}} <a href = "{% url 'evaldetail' eval.id %}"> ...and more </a> </p>
+
+{% empty %}
+<p> 작성된 강의평이 없습니다. </p>
 
 {% endfor %}
 <!-- 평가 작성 페이지로 이동-->
-<button name = "write"> <a href = "{% url 'write' %}"> 평가 작성하기 </a> </button>
+<button name = "write"> <a href = "{% url 'write' lect.id %}"> 평가 작성하기 </a> </button>
+<button name = "lecturelist"> <a href = "{% url 'lecturelist' %}"> Home </a> </button>
