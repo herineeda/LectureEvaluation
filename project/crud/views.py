@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-from .models import Lecture, Evals
+from .models import Lecture, Evals, User
 
 # Create your views here.
 
@@ -31,6 +31,7 @@ def evaldetail(request, evals_id):
 def create(request):
     if request.method == "POST":
         new_eval = Evals()
+        new_eval.author = request.user
         new_eval.title = request.POST['title']
         new_eval.lect = Lecture.objects.get(lectureName = request.POST['lect_name'])
         new_eval.pub_date = timezone.datetime.now()
@@ -38,26 +39,33 @@ def create(request):
         new_eval.save()
         return redirect('/write/' + str(new_eval.id))
     else:
-        return redirect('write')
+        return render(request, 'evallist.html')
     
 #평가글 삭제
 def eval_delete(request, evals_id):
     evals = Evals.objects.get(id = evals_id)
-    evals.delete()
-    return redirect('lecturelist')
+
+    if not evals.author == request.user:
+        return redirect('/write/' + str(evals.id))
+    else:
+        evals.delete()
+        return redirect('lecturelist')
 
 #평가글 수정
 def edit(request, evals_id):
 
     evaledit = Evals.objects.get(pk = evals_id)
-    
-    if request.method == "POST":
-        evaledit.title = request.POST['title']
-        evaledit.pub_date = timezone.datetime.now()
-        evaledit.body = request.POST['body']
-        evaledit.save()
+
+    if not evaledit.author == request.user:
         return redirect('/write/' + str(evaledit.id))
-    return render(request, 'edit.html', {'evaledit' : evaledit})
+    else:
+        if request.method == "POST":
+            evaledit.title = request.POST['title']
+            evaledit.pub_date = timezone.datetime.now()
+            evaledit.body = request.POST['body']
+            evaledit.save()
+            return redirect('/write/' + str(evaledit.id))
+        return render(request, 'edit.html', {'evaledit' : evaledit})
 
 
        

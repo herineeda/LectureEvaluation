@@ -9,9 +9,16 @@
 <p> {{evals.pub_date}} </p>
 <p> {{evals.body}} </p>
 
+{% if evals.author == user %}
 <button name = "edit"> <a href = "{% url 'edit' evals.id %}"> 수정하기 </a> </button>
 <button name = "delete"> <a href = "{% url 'delete' evals.id %}"> 삭제하기 </a></button>
 
+{% else %}
+<div class = "alert alert-warning"> 글을 수정/삭제할 수 없습니다. </div>
+
+{% endif %}
 <button name = "lecturelist"> <a href = "{% url 'lecturelist' %}"> Home </a> </button>
+
+
 
 {% endblock %}
