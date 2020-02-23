@@ -7,7 +7,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Courgette|Jua|Merienda+One|Pacifico|Trade+Winds&display=swap" rel="stylesheet">
-
+        <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Peralta|Sansita|Stylish|Yeon+Sung&display=swap" rel="stylesheet">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,14 +21,19 @@
 
 
     <style type="text/css">
+    
         body{
              
             font-family: 'Merienda One','Courgette','Pacifico', 'Trade Winds', sans-serif;
+            font-size: 18px;
         }
+
+        
         .form-control {
             box-shadow: none;		
             font-weight: normal;
             font-size: 13px;
+            font-family: 'Merienda One','Courgette','Pacifico', 'Trade Winds', sans-serif;
         }
         .form-control:focus {
             border-color: #33cabb;
@@ -228,12 +233,12 @@
         .navbar .checkbox-inline {
             font-size: 13px;
             width:300px;
-    height:300px;
-    position:absolute;
-    left:50%;
-    top:50%;
-    margin-left:-150px;
-    margin-top:-150px;
+            height:300px;
+            position:absolute;
+            left:50%;
+            top:50%;
+            margin-left:-150px;
+            margin-top:-150px;
         }
         .navbar .navbar-right .dropdown-toggle::after {
             display: none;
@@ -310,8 +315,46 @@
         text-align:center;
         font-family: 'Jua','Varela Round', Calibri, sans-serif;
     }
-   
-        </style>
+    
+    #btn_group{
+        text-align:center;
+        font-family: 'Jua','Varela Round', Calibri, sans-serif;
+
+    }
+
+    #test_btn1{
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        margin-right: -4px;
+        text-decoration:none;
+        
+    }
+
+    #test_btn2{
+        
+        margin-right: -4px;
+        
+    }
+
+    #test_btn3{
+       
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        margin-right:-3px;
+    }
+
+    #btn_group button{
+        border: 1px solid skyblue;
+        background-color: rgba(0,0,0,0);
+        color: #20c997;
+        padding: 5px;
+    }
+
+    #btn_group button:hover{
+        color:white;
+        background-color: skyblue;
+}
+</style>
         <script type="text/javascript">
             // Prevent dropdown menu from closing when click inside the form
             $(document).on("click", ".navbar-right .dropdown-menu", function(e){

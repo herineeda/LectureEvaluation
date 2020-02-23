@@ -7,12 +7,6 @@
 <head>
 <style>
 
-body {
-   font: 18px/20px 'Jua','Merienda One','Helvetica Neue', Helvetica, Arial, sans-serif;
-   color: #343a40;
-   background: ;
-}
-
 .signUp {
    position: relative;
    margin: 50px auto;
@@ -23,6 +17,31 @@ body {
    border-radius: 5px;
    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+   font: 20px  
+   font-family: 'Do Hyeon','Yeon Sung','Peralta', 'Jua','Merienda One','Helvetica Neue', Helvetica, Arial, sans-serif;
+   color: #343a40;
+   background: ;
+
+
+}
+
+#major{
+   font-family: 'Do Hyeon','Yeon Sung','Peralta', 'Jua','Merienda One','Helvetica Neue', Helvetica, Arial, sans-serif;
+   font-size: 19px;
+}
+#inputname{
+   font-family: 'Do Hyeon','Yeon Sung','Peralta', 'Jua','Merienda One','Helvetica Neue', Helvetica, Arial, sans-serif;
+   font-size: 19px;
+}
+
+#inputemail{
+   font-family: 'Do Hyeon','Yeon Sung','Peralta', 'Jua','Merienda One','Helvetica Neue', Helvetica, Arial, sans-serif;
+   font-size: 19px;
+}
+
+#undergradnum{
+   font-family: 'Do Hyeon','Yeon Sung','Peralta', 'Jua','Merienda One','Helvetica Neue', Helvetica, Arial, sans-serif;
+   font-size: 19px;
 }
 
 .signUp:before,
@@ -151,6 +170,9 @@ input {
    padding: 0;
 }
 
+.signUpButton{
+   font-family: 'Do Hyeon','Yeon Sung','Peralta', 'Jua','Merienda One','Helvetica Neue', Helvetica, Arial, sans-serif;
+}
  
 </style>
 </head>
@@ -159,20 +181,21 @@ input {
 
     <div>
 
-      <form method="POST" action="{%url 'signup'%}" class="signUp" id="signupForm">
+      <form method="POST" action="{%url 'signup'%}" class="signUp" id="signupForm" width="650px">
         {% csrf_token %}
         <h1 class="signUpTitle"> SIGN UP</h2>
-
-        <label for="inputMajor">학과</label>
+        
+        <label for="inputMajor" id="major">학과</label>
         <input name="major" type="text" id="inputMajor" class="loginInput" placeholder="Major" required>
-
-        <label for="inputUndergradNum">학번</label>
+        
+        
+        <label for="inputUndergradNum" id="undergradnum">학번</label>
         <input name="undergradNum" type="number" class="loginInput" id="inputUndergradNum" placeholder="Undergrad Number" required>
-
-        <label for="inputName">이름</label>
+        
+        <label for="inputName" id="inputname">이름</label>
         <input name="studentname" type="text" class="loginInput" id="inputName" placeholder="Name" required autofocus>
 
-        <label for="inputEmail">이메일</label>
+        <label for="inputEmail" id="inputemail">이메일</label>
         <input name="email" type="email" class="loginInput" id="inputEmail" placeholder="Email address" required autofocus>
 
         <label for="inputPassword">Password</label>
@@ -186,7 +209,7 @@ input {
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-        <input class="signUpButton" type="submit"></button>
+        <input class="signUpButton" type="submit" font-family="'Do Hyeon',san-serif;"></button>
       </form>
 
     </div>

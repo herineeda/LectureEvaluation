@@ -2,18 +2,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1 class="titletext">강의 리스트</h1>
-
+<h1 class="titletext" style="border:2px solid skyblue; margin: 70px; text-align: center;">강의 리스트</h1>
+<div id="btn_group">
 <a href="{% url 'filteringM' %}">전공</a>
 <a href="{% url 'filteringL' %}">교양</a>
 <a href="{% url 'showLecture' %}">모두 보기</a>
 <a href="{%url 'home' %}">뒤로 가기</a>
+</div>
+
+<div class="card-body" style="align-self:center" margin-left= auto; margin-right= auto;>
+<br><br>
 {% for s in subject.all %}
-<div>
-    <p>강좌명: {{s.lectureName}}</p>
-    <p>교수: {{s.professor}}</p>
+<div class="card" style="width: 30rem; margin-right: 60px; margin-left: 50px;  margin-bottom: 20px; padding:20px; ">
+<div class="card-body" style="align-self:center" margin-left= auto; margin-right= auto;>
+
+    <p style="color:#000;">강좌명: {{s.lectureName}}</p>
+    <p style="color:#000;">교수: {{s.professor}}</p>
+</div>
 </div>
 {% endfor %}
-<a href ="{% url 'home' %}">홈</a>
+
 
 {% endblock %}
