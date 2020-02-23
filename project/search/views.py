@@ -8,18 +8,18 @@ def home(request):
 
 # 모든 강의를 이름 순으로 보여주기
 def showLecture(request):
-    subject = Lecture.objects.order_by('lectureName')
-    return render(request, 'showLecture.html', {'subject':subject})
+    lectures = Lecture.objects.order_by('lectureName')
+    return render(request, 'lecturelist.html', {'lectures':lectures})
 
 # 전공 강의만 보여주기
 def filteringM(request):
-    subject = Lecture.objects.filter(separation__icontains='전공')
-    return render(request, 'showLecture.html', {'subject':subject})
+    lectures = Lecture.objects.filter(separation__icontains='전공')
+    return render(request, 'lecturelist.html', {'lectures':lectures})
 
 # 교양 강의만 보여주기
 def filteringL(request):
-    subject = Lecture.objects.filter(separation__icontains='교양')
-    return render(request, 'showLecture.html', {'subject':subject})
+    lectures = Lecture.objects.filter(separation__icontains='교양')
+    return render(request, 'lecturelist.html', {'lectures':lectures})
 
 # 검색 결과 보여주기
 def searchResult(request):

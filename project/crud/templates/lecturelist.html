@@ -4,6 +4,9 @@
 
 <!-- 강의 리스트 -->
 <h1> 강의 리스트 </h1>
+<a href="{% url 'filteringM' %}">전공</a>
+<a href="{% url 'filteringL' %}">교양</a>
+<a href="{% url 'showLecture' %}">모두 보기</a>
 
 {% for lect in lectures.all %}
 
