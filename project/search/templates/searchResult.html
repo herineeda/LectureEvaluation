@@ -1,5 +1,8 @@
 <!--검색결과 페이지/ 강좌명과 교수명만 출력, 이를 누르면 강의 평가와 이어지도록 만들기-->
-<h1>검색결과</h1>
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="titletext">검색결과</h1>
 
 {% for r in result %}
 <div>
@@ -8,3 +11,5 @@
 {% empty %}
     <p>검색 결과가 없습니다. 검색어를 제대로 입력해주세요.</p> 
 {% endfor%}
+
+{% endblock %}
