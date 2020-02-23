@@ -32,7 +32,7 @@ def create(request):
     if request.method == "POST":
         new_eval = Evals()
         new_eval.title = request.POST['title']
-        new_eval.lect = Lecture.objects.get(id = request.POST['lect_id'])
+        new_eval.lect = Lecture.objects.get(lectureName = request.POST['lect_name'])
         new_eval.pub_date = timezone.datetime.now()
         new_eval.body = request.POST['body']
         new_eval.save()
