@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.db.models import Q # filter 조건을 or로 묶기 위해서 사용
-from .models import Lecture # lecture 가져오기
+from crud.models import Lecture # lecture 가져오기
 
 # 홈 화면 보여주기
 def home(request):
