@@ -10,11 +10,12 @@ def signup(request):
     if request.method == 'POST':
         if request.POST['password1'] == request.POST['password2']:
             user = User.objects.create_user(username=request.POST['email'], password=request.POST['password1'])
+            email = request.POST["email"]
             major = request.POST["major"]
             undergradNum = request.POST["undergradNum"]
             studentname = request.POST.get('studentname', '')
             #studentname = request.POST["studentname"]
-            profile = Profile(user=user, major=major, undergradNum=undergradNum, studentname=studentname)
+            profile = Profile(email=email, user=user, major=major, undergradNum=undergradNum, studentname=studentname)
             profile.save()
             auth.login(request, user, backend='django.contrib.auth.backends.ModelBackend') #로그인 하는 함수
             return redirect('main')
