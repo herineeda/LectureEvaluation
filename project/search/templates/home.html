@@ -1,0 +1,24 @@
+<!--첫 화면/ 강의 및 교수명을 검색할 수 있고 모든 강의 리스트를 볼 수 있는 링크-->
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="titletext">강의 평가</h1>
+<div>
+    <form class="navbar-form form-inline">
+	<div class="input-group search-box" style="left: 50%; transform: translatex(-60%);">
+    <form action="{% url 'searchResult' %}">
+        <input type='text' name=txt id="search" class="form-control" placeholder="강의명이나 교수명 입력">
+        <span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
+        {% comment %} <button type="button" id="button">search</button> {% endcomment %}
+    </form>
+    </div>
+    </div>
+    </form>
+</div>
+
+    <h2><a href="{% url 'showLecture'%}">강의 리스트</a></h2>
+
+
+
+{% endblock %}
+
