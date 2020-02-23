@@ -8,6 +8,9 @@
 <div>
     <p>강좌명: {{r.lectureName}}  교수명: {{r.professor}}</p>
 </div>
+
+<button> <a href = "{% url 'evallist' r.id %}"> 강의평 작성하러가기 </a> </button>
+
 {% empty %}
     <p>검색 결과가 없습니다. 검색어를 제대로 입력해주세요.</p> 
 {% endfor%}
