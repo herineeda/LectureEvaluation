@@ -18,7 +18,7 @@ def signup(request):
             profile = Profile(email=email, user=user, major=major, undergradNum=undergradNum, studentname=studentname)
             profile.save()
             auth.login(request, user, backend='django.contrib.auth.backends.ModelBackend') #로그인 하는 함수
-            return redirect('main')
+            return redirect('home')
     return render(request, 'signup.html')  
 
 
@@ -29,7 +29,7 @@ def login(request):
         user = auth.authenticate(request, username=username, password=password)
         if user is not None:
             auth.login(request, user)
-            return redirect('main')
+            return redirect('home')
         else:
             return render(request, 'login.html', {'error' : 'username or password is incorrect.'})
     else:
@@ -41,4 +41,7 @@ def main(request):
 
 def logout(request):
     auth.logout(request)
-    return redirect('main')
+    return redirect('home')
+
+# def confirmId(request):
+#     if request.POST['password1'] == request.POST['password2']:
