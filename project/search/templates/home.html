@@ -9,15 +9,32 @@
         <input type='text' name=txt id="search" class="form-control" placeholder="강의명이나 교수명 입력">
         <span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
         {% comment %} <button type="button" id="button">search</button> {% endcomment %}
-    </form>
-    </div>
     </div>
     </form>
 </div>
 
-    
+{% for e in evals %}
+<div>
+    <h3>{{e.lect}}</h3>
+    <p>{{e.title}}</p>
+    <p>{{e.summary}} <a href="{% url 'evaldetail' e.id %}">...more</a></p>
+</div>
+{% endfor %}
 
+<div>
+    {% if evals.has_previous %}
+        <a href="?page=1">First</a>
+        <a href="?page={{evals.previous_page_number}}">Previous</a>
+    {% endif %}
 
+    <span>{{evals.number}}</span>
+    <span>of</span>
+    <span>{{evals.paginator.num_pages}}</span>
 
+    {% if evals.has_next %}
+        <a href="?page={{evals.next_page_number}}">Next</a>
+        <a href="?page={{evals.paginator.num_pages}}">Last</a>
+    {% endif %}
+</div>
 {% endblock %}
 

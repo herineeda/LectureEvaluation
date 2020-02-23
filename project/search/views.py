@@ -1,10 +1,15 @@
 from django.shortcuts import render
 from django.db.models import Q # filter 조건을 or로 묶기 위해서 사용
-from crud.models import Lecture # lecture 가져오기
+from django.core.paginator import Paginator # pagination을 하기 위해서 가져옴
+from crud.models import Lecture, Evals # lecture 가져오기
 
-# 홈 화면 보여주기
+# 홈 화면 + 강의평을 4개씩 보여주기
 def home(request):
-    return render(request, 'home.html')
+    evalList = Evals.objects.order_by('pub_date').reverse().all()
+    paginator = Paginator(evalList, 4)
+    page = request.GET.get('page')
+    evals = paginator.get_page(page)
+    return render(request, 'home.html', {'evals':evals})
 
 # 모든 강의를 이름 순으로 보여주기
 def showLecture(request):
