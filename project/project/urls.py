@@ -10,3 +10,4 @@ urlpatterns = [
     path('lecture/', include('crud.urls')),
     path('search/', include('search.urls')), # search 앱에 있는 urls.py에 url 설계
     path('write/<int:evals_id>', crud.views.evaldetail, name = "evaldetail"),
+]
