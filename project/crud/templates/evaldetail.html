@@ -1,4 +1,8 @@
 <!-- 작성한 평가 자세히 보는 페이지 -->
+{% extends 'base.html' %}
+
+{% block content %}
+
 <h1> 강의 평가 자세히 보기 </h1>
 
 <h3> {{evals.title}} </h3>
@@ -9,3 +13,5 @@
 <button name = "delete"> <a href = "{% url 'delete' evals.id %}"> 삭제하기 </a></button>
 
 <button name = "lecturelist"> <a href = "{% url 'lecturelist' %}"> Home </a> </button>
+
+{% endblock %}

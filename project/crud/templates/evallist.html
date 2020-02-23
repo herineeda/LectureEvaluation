@@ -1,3 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
 <h1> 강의 평가 목록 <h1>
 
 <!--평가 강의에 대한 정보-->
@@ -19,3 +23,5 @@
 <!-- 평가 작성 페이지로 이동-->
 <button name = "write"> <a href = "{% url 'write' lect.id %}"> 평가 작성하기 </a> </button>
 <button name = "lecturelist"> <a href = "{% url 'lecturelist' %}"> Home </a> </button>
+
+{% endblock %}
