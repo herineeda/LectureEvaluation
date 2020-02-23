@@ -1,0 +1,20 @@
+{% load socialaccount %}
+{% providers_media_js %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  </head>
+
+  <body>
+          <ul class="nav navbar-nav">
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'logout'%}">logout</a></li>
+            <li><a href="">{{user.username}} 님이 로그인 중</a></li>
+            {% else %}
+            <li><a href="{% url 'signup'%}">signup</a></li>
+            <li><a href="{% url 'login'%}">login</a></li>
+            {% endif %}            
+          </ul>
+  </body>
+</html>
