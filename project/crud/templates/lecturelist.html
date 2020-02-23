@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- 강의 리스트 -->
+<h1> 강의 리스트 </h1>
+
+{% for lect in lectures.all %}
+
+<h2> {{lect.lectureName}} </h2>
+<p> {{lect.professor}} </p>
+<p> {{lect.major}} </p>
+<p> {{lect.separation}} </p>
+
+
+<button> <a href = "{% url 'evallist' lect.id %}"> 강의 평가 목록 </a> </button> 
+{% endfor %}
+
+{% endblock %}

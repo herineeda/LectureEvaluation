@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1> 글 수정하기 </h1>
+
+<form method = "POST" action = "{% url 'edit' evaledit.id %}">
+
+{% csrf_token %}
+
+제목을 입력해주세요.
+<br>
+<input type = "text" name = "title" value = "{{evaledit.title}}">
+<br>
+종합적인 평가 내용을 입력해주세요.
+<br>
+<textarea cols = "30" rows = "20" name = "body">{{evaledit.body}}</textarea>
+<br>
+<br>
+<input type = "submit" value = "수정 완료!"> 
+</form>
+
+{% endblock %}
