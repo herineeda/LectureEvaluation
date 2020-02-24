@@ -5,14 +5,14 @@
 <h1 class="titletext">검색결과</h1>
 
 {% for r in result %}
-<div>
-    <p>강좌명: {{r.lectureName}}  교수명: {{r.professor}}</p>
+<div class="lecturelistbody">
+    <p>강좌명: {{r.lectureName}} <br> 교수명: {{r.professor}}</p>
 </div>
-
-<button> <a href = "{% url 'evallist' r.id %}"> 강의평 작성하러가기 </a> </button>
-
+<div id="btn_group">
+<button id="test_btn5"> <a href = "{% url 'evallist' r.id %}" style="text-decoration:none"> 강의평 작성하러가기 </a></button>
+</div>
 {% empty %}
-    <p>검색 결과가 없습니다. 검색어를 제대로 입력해주세요.</p> 
+    <p style="text-align:center; font-family: 'Jua', sans-serif;">검색 결과가 없습니다. 검색어를 제대로 입력해주세요.</p> 
 {% endfor%}
 
 {% endblock %}

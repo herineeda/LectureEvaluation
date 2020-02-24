@@ -4,6 +4,8 @@
 
 <h1 class="titletext"> 강의 평가 목록 <h1>
 
+<div class="lecturelistbody">
+
 <!--평가 강의에 대한 정보-->
 <h3> {{lect.lectureName}} </h3>
 <p> {{lect.professor}} </p>
@@ -16,12 +18,15 @@
 <p> {{eval.pub_date}}</p>
 <p>{{eval.summary}} <a href = "{% url 'evaldetail' eval.id %}"> ...and more </a> </p>
 
+</div>
+
 {% empty %}
 <p> 작성된 강의평이 없습니다. </p>
 
 {% endfor %}
 <!-- 평가 작성 페이지로 이동-->
-<button name = "write"> <a href = "{% url 'write' lect.id %}"> 평가 작성하기 </a> </button>
-<button name = "lecturelist"> <a href = "{% url 'lecturelist' %}"> Home </a> </button>
-
+<div id="btn_group">
+<button name = "write" id="test_btn5"> <a href = "{% url 'write' lect.id %}"> 평가 작성하기 </a> </button>
+<button name = "lecturelist" id="test_btn5"> <a href = "{% url 'lecturelist' %}" style="text-decoration:none"> 강의목록으로 돌아가기 </a> </button>
+</div>
 {% endblock %}

@@ -10,14 +10,13 @@
 <button id="test_btn3"><a href="{% url 'showLecture' %}" style="text-decoration:none">모두 보기</a></button>
 </div>
 
-<div class=lecturelistbody>
-{% for lect in lectures.all %}
 
+{% for lect in lectures.all %}
+<div class=lecturelistbody>
 <h2> {{lect.lectureName}} </h2>
 <p> {{lect.professor}} </p>
 <p> {{lect.major}} </p>
 <p> {{lect.separation}} </p>
-
 </div>
 
 <div id="btn_group">
