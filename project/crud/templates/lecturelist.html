@@ -9,6 +9,8 @@
 <button id="test_btn2"><a href="{% url 'filteringL' %}" style="text-decoration:none">교양</a></button>
 <button id="test_btn3"><a href="{% url 'showLecture' %}" style="text-decoration:none">모두 보기</a></button>
 </div>
+
+<div class=lecturelistbody>
 {% for lect in lectures.all %}
 
 <h2> {{lect.lectureName}} </h2>
@@ -16,8 +18,10 @@
 <p> {{lect.major}} </p>
 <p> {{lect.separation}} </p>
 
+</div>
 
-<button> <a href = "{% url 'evallist' lect.id %}"> 강의 평가 목록 </a> </button> 
+<div id="btn_group">
+<button id="test_btn6"> <a href = "{% url 'evallist' lect.id %}"> 강의 평가 목록 </a> </button> </div>
 {% endfor %}
 
 {% endblock %}

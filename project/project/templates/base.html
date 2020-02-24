@@ -342,17 +342,51 @@
         border-bottom-right-radius: 5px;
         margin-right:-3px;
     }
+    .test_btn4{
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        margin-right: -4px;
+        text-decoration:none;
+        
+    }
+
+    #test_btn5{
+       
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    margin-right:-3px;
+
+    }
+
+    #test_btn6{
+    
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    margin-right:-3px;
+
+    }
 
     #btn_group button{
         border: 1px solid skyblue;
         background-color: rgba(0,0,0,0);
-        color: #20c997;
+        color: #343a40;
         padding: 5px;
     }
 
     #btn_group button:hover{
         color:white;
         background-color: skyblue;
+}
+
+    .lecturelistbody{
+
+        text-align:center;
+        font-family: 'Jua','Varela Round','Calibri', sans-serif;
+
 }
 </style>
         <script type="text/javascript">
@@ -378,7 +412,7 @@
 	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
 		<ul class="nav navbar-nav" width="600px">						
 			<li class="nav-item active"><a href="{% url 'home' %}" class="nav-link">Home</a></li>
-			<li class="nav-item"><a href="#" class="nav-link">About</a></li>
+			<li class="nav-item"><a href= javascript:alert('준비중입니다.'); onfocus="this.blur()" class="nav-link">About</a></li>
 			<li class="nav-item"><a href="{% url 'lecturelist' %}" class="nav-link">Lecture-List</a></li>
 		</ul>
         
