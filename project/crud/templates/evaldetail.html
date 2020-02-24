@@ -10,14 +10,14 @@
 <p> {{evals.pub_date}} </p>
 <p> {{evals.body}} </p>
 </div>
-
+<br>
 {% if evals.author == user %}
 <div id="btn_group">
 <button name = "edit"  id="test_btn5"> <a href = "{% url 'edit' evals.id %}"> 수정하기 </a> </button>
 <button name = "delete"  id="test_btn5"> <a href = "{% url 'delete' evals.id %}"> 삭제하기 </a></button>
 </div>
 {% else %}
-<div class = "alert alert-warning"> 글을 수정/삭제할 수 없습니다. </div>
+<div class = "alert alert-warning" style="text-align:center; font-family: 'Jua', sans-serif;"> 글을 수정/삭제할 수 없습니다. </div>
 
 {% endif %}
 <div id="btn_group">

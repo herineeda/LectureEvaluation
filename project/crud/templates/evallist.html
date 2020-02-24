@@ -5,7 +5,7 @@
 <h1 class="titletext"> 강의 평가 목록 <h1>
 
 
-<div class="lecturebody">
+<div class="lecturebody" style="text-align:center;">
 <!--평가 강의에 대한 정보-->
 <h3> {{lect.lectureName}} </h3>
 <h3> {{lect.professor}} </h4>
@@ -13,7 +13,8 @@
 <h3> {{lect.separation}} <h3>
 </div>
 <!--해당 강의에 대한 평가 글-->
-
+<br>
+<br>
 {% for eval in relev_eval %}
 <div class="evallist">
 <p style="font-size:18px;">{{eval.title}}</p>
