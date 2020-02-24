@@ -29,7 +29,9 @@
 <br><br>
 <!-- 평가 작성 페이지로 이동-->
 <div id="btn_group">
+{% if user.is_authenticated %}
 <button name = "write" id="test_btn7" style="font-size:16px;"> <a href = "{% url 'write' lect.id %}"> 평가 작성하기 </a> </button>
+{% endif %}
 <button name = "lecturelist" id="test_btn7" style="font-size:16px;"> <a href = "{% url 'lecturelist' %}" style="text-decoration:none"> 강의목록으로 돌아가기 </a> </button>
 </div>
 {% endblock %}
