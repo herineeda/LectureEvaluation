@@ -14,13 +14,13 @@
 </div>
 <!--해당 강의에 대한 평가 글-->
 <br>
-<br>
 {% for eval in relev_eval %}
 <div class="evallist">
 <p style="font-size:18px;">{{eval.title}}</p>
 <p style="font-size:18px;"> {{eval.pub_date}}</p>
 <p style="font-size:18px;">{{eval.summary}} <a href = "{% url 'evaldetail' eval.id %}"> ...and more </a> </p>
 </div>
+<br>
 {% empty %}
 <p style="font-size:15px; text-align:center; font-family: 'Jua',sans-serif;"> 작성된 강의평이 없습니다. </p>
 
