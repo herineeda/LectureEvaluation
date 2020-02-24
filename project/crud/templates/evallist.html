@@ -4,16 +4,18 @@
 
 <h1 class="titletext"> 강의 평가 목록 <h1>
 
-<div class="lecturelistbody">
 
+<div class="lecturebody">
 <!--평가 강의에 대한 정보-->
 <h3> {{lect.lectureName}} </h3>
-<p> {{lect.professor}} </p>
-<p> {{lect.major}} </p>
-<p> {{lect.separation}} </p>
-
+<p style="font-size:15px;"> {{lect.professor}} </p>
+<p style="font-size:18px;"> {{lect.major}} </p>
+<p style="font-size:18px;"> {{lect.separation}} </p>
+</div>
 <!--해당 강의에 대한 평가 글-->
+
 {% for eval in relev_eval %}
+<div class="lecturebody">
 <p>{{eval.title}}</p>
 <p> {{eval.pub_date}}</p>
 <p>{{eval.summary}} <a href = "{% url 'evaldetail' eval.id %}"> ...and more </a> </p>
@@ -21,9 +23,12 @@
 </div>
 
 {% empty %}
-<p> 작성된 강의평이 없습니다. </p>
+<p style="font-size:15px;"> 작성된 강의평이 없습니다. </p>
 
 {% endfor %}
+
+</div>
+<br><br>
 <!-- 평가 작성 페이지로 이동-->
 <div id="btn_group">
 <button name = "write" id="test_btn5"> <a href = "{% url 'write' lect.id %}"> 평가 작성하기 </a> </button>
