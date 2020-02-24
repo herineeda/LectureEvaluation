@@ -8,22 +8,20 @@
 <div class="lecturebody">
 <!--평가 강의에 대한 정보-->
 <h3> {{lect.lectureName}} </h3>
-<p style="font-size:15px;"> {{lect.professor}} </p>
-<p style="font-size:18px;"> {{lect.major}} </p>
-<p style="font-size:18px;"> {{lect.separation}} </p>
+<h3> {{lect.professor}} </h4>
+<h3> {{lect.major}} </h5>
+<h3> {{lect.separation}} <h3>
 </div>
 <!--해당 강의에 대한 평가 글-->
 
 {% for eval in relev_eval %}
-<div class="lecturebody">
-<p>{{eval.title}}</p>
-<p> {{eval.pub_date}}</p>
-<p>{{eval.summary}} <a href = "{% url 'evaldetail' eval.id %}"> ...and more </a> </p>
-
+<div class="evallist">
+<p style="font-size:18px;">{{eval.title}}</p>
+<p style="font-size:18px;"> {{eval.pub_date}}</p>
+<p style="font-size:18px;">{{eval.summary}} <a href = "{% url 'evaldetail' eval.id %}"> ...and more </a> </p>
 </div>
-
 {% empty %}
-<p style="font-size:15px;"> 작성된 강의평이 없습니다. </p>
+<p style="font-size:15px; text-align:center; font-family: 'Jua',sans-serif;"> 작성된 강의평이 없습니다. </p>
 
 {% endfor %}
 
@@ -31,7 +29,7 @@
 <br><br>
 <!-- 평가 작성 페이지로 이동-->
 <div id="btn_group">
-<button name = "write" id="test_btn5"> <a href = "{% url 'write' lect.id %}"> 평가 작성하기 </a> </button>
-<button name = "lecturelist" id="test_btn5"> <a href = "{% url 'lecturelist' %}" style="text-decoration:none"> 강의목록으로 돌아가기 </a> </button>
+<button name = "write" id="test_btn7" style="font-size:16px;"> <a href = "{% url 'write' lect.id %}"> 평가 작성하기 </a> </button>
+<button name = "lecturelist" id="test_btn7" style="font-size:16px;"> <a href = "{% url 'lecturelist' %}" style="text-decoration:none"> 강의목록으로 돌아가기 </a> </button>
 </div>
 {% endblock %}
